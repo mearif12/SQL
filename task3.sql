@@ -4,8 +4,7 @@
 CREATE PROC sp_showTitleAndAuthor 
 AS
 BEGIN
-    SELECT "Authors Last Name"=au_lname FROM authors where au_id in (select au_id from 
-           titleauthor where title_id='BU1032');
+    SELECT "Authors Last Name"=au_lname FROM authors where au_id in (select au_id from titleauthor where title_id='BU1032');
 END
 
 EXEC sp_showTitleAndAuthor;
@@ -21,8 +20,7 @@ GO -- for another separate batch
 ALTER PROC sp_showTitleAndAuthor
 AS
 BEGIN
-    SELECT "Authors Last Name"=au_lname FROM authors where au_id in (select au_id from 
-           titleauthor where title_id='TC7777');
+    SELECT "Authors Last Name"=au_lname FROM authors where au_id in (select au_id from titleauthor where title_id='TC7777');
 END   
 EXEC sp_showTitleAndAuthor;
 
@@ -32,8 +30,7 @@ GO
 ALTER PROC sp_showTitleAndAuthor @titleid char(15) 
 AS
 BEGIN
-  SELECT "Authors Last Name"=au_lname FROM authors where au_id in (select au_id from 
-        titleauthor where title_id=@titleid)
+  SELECT "Authors Last Name"=au_lname FROM authors where au_id in (select au_id from titleauthor where title_id=@titleid)
 END
 EXEC sp_showTitleAndAuthor 'BU1032';
 
@@ -120,5 +117,3 @@ BEGIN
    END
 END
 EXEC sp_increasePriceUntilAvg 'Electronics', 1000
-
-
